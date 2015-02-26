@@ -1,0 +1,33 @@
+#ifndef PRINTER_H
+#define PRINTER_H
+
+#include "iocomponentirq.h"
+#include "../filehandling/fileprinter.h"
+
+class Printer : public IOComponentIRQ
+{
+public:
+    Printer();
+    Printer(const byte *registers, const word minAddress, const word maxAddress);
+    Printer(const word minAddress, const word maxAddress);
+    byte GetRegisterValue(const word address);
+    void PrintBuffer() const;
+    void UpdateDebugStatus(word address);
+private:
+    // 0xA800 is a special address. It contains a byte indicating many parameters.
+    // One of them is PB3, the bit which indicates the state of the KB/TTY switch. KB = 1. TTY = 0.
+    static const word DRB_ADDR = 0xA800;
+    static const word DRB_TE9 = 0x80;
+    static const word DRB_TE10 = 0x40;
+    static const word DRB_PB3 = 0x10;
+    static const word DRB_MASK = 0x3C;
+    static const word DRAH_ADDR = 0xA801;
+    // 0xF08C - PRDOT0: Beginning of printer buffer printing subroutine. (Called from 0xFF4B)
+    static const word PRDOT0_ADDR = 0xF08C;
+    // Address of the start of the printer buffer in Monitor RAM. This is a 20 byte array.
+    static const word IBUFM_ADDR = 0xA460;
+
+    DISALLOW_COPY_AND_ASSIGN(Printer);
+};
+
+#endif /* PRINTER_H */
