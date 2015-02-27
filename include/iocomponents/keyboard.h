@@ -28,7 +28,6 @@ class Keyboard : public IOComponentIRQ
     DISALLOW_COPY_AND_ASSIGN(Keyboard);
 
     /**
-     * @brief IsValidChar
      * {Checks whether the character specified is recognised by the AIM65.}
      * @param ch {Character to check.}
      * @return {True if it is recognised, false if it's not.}

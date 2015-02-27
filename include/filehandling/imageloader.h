@@ -7,6 +7,9 @@
 
 typedef std::pair<word, byte> data_pair;
 
+/**
+ * Loads an AIM-65 6500 assembly binary image from a file.
+ */
 class ImageLoader
 {
  public:

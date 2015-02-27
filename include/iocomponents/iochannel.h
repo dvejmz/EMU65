@@ -7,20 +7,17 @@
 #include "leddisplay.h"
 
 /**
- * @brief The IOChannel class
- * {Connects an IOComponent module to IOBus.}
+ * Connects an IOComponent module to IOBus.
  */
 class IOChannel : public Channel
 {
  public:
     /**
-     * @brief IOChannel
-     * \sa Channel::Channel
+     * @see Channel::Channel
      */
     IOChannel(IOBus *bus);
     /**
-     * @brief ~IOChannel
-     *\sa Channel::~Channel
+     * @see Channel::~Channel
      */
     virtual ~IOChannel();
     // PASSIVE METHODS.
@@ -30,43 +27,37 @@ class IOChannel : public Channel
     // so Cpu reads its contents or updates its buffers.
     // Updates IOComponent buffer.
     /**
-     * @brief Write
-     * \sa Channel::Write
+     * @see Channel::Write
      */
     virtual void Write(word address, byte value) const;
     /**
-     * @brief Read
-     * \sa Channel::Read
+     * @see Channel::Read
      */
     virtual byte Read(word address);
     // When overriden by an IOChannel class, this acts as a
     // passive method, solely called by IOBus.
     // Reads IOComponent buffer.
     /**
-     * @brief SendIRQ
-     * {Sets the IRQ line in IOBus high.}
+     * Sets the IRQ line in IOBus high.
      */
     void SendIRQ() const;
     /**
-     * @brief IsValidAddress
-     * {Confirms that the address is indeed mapped to a register in the attached IOComponent.}
-     * @param address {Address to check.}
-     * @return {True if the address is valid, false if it is not.}
+     * Confirms that the address is indeed mapped to a register in the attached IOComponent.
+     * @param address Address to check.
+     * @return True if the address is valid, false if it is not.
      */
     bool IsValidAddress(word address) const;
     /**
-     * @brief BindComponent
-     * {Attaches an IOComponent to this instance so the component is able to exchange messages
-     * with the rest of the system through IOBus.}
-     * @param component {IOComponent to bind.}
+     * Attaches an IOComponent to this instance so the component is able to exchange messages
+     * with the rest of the system through IOBus.
+     * @param component IOComponent to bind.
      */
     void BindComponent(IOComponent *component);
     /**
-     * @brief GetAddressRange
-     * {Obtains an AddressRange struct conaining the minimum and maximum address on which the
-     * attached IOComponents operates.}
-     * @return {An AddressRange struct identifying the address space bounds of the attached IOComponent.}
-     * \sa IOComponent::GetAddressRange
+     * Obtains an AddressRange struct conaining the minimum and maximum address on which the
+     * attached IOComponents operates.
+     * @return An AddressRange struct identifying the address space bounds of the attached IOComponent.
+     * @see IOComponent::GetAddressRange
      */
     std::vector<word> GetAddressRange();
 
@@ -74,13 +65,11 @@ class IOChannel : public Channel
 
 private:
     /**
-     * @brief m_component
-     * {Connected IOComponent.}
+     * Connected IOComponent.
      */
     std::unique_ptr<IOComponent> m_component;
     /**
-     * @brief m_addressRange
-     * {Address range within which the attached IOComponent responds.}
+     * Address range within which the attached IOComponent responds.
      */
     std::vector<word> m_addressRange;
 

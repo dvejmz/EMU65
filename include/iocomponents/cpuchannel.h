@@ -12,29 +12,26 @@ class CpuChannel : public Channel
 {
  public:
     /**
-     * @brief CpuChannel
-     * \sa Channel
+     * @param bus IOBus to which the CpuChannel will be attached.
+     * @see Channel
      */
     CpuChannel(IOBus *bus);
     /**
-     * @brief ~CpuChannel
-     * \sa ~Channel
+     * @see ~Channel
      */
     virtual ~CpuChannel();
     /**
-     * @brief ReadIRQLineState
-     * {Reads the state of the IRQ line in IOBus.}
-     * @return {True if it is high (pending IRQ) and false if it is low (no IRQ).}
+     * Reads the state of the IRQ line in IOBus.
+     * @return True if it is high (pending IRQ) and false if it is low (no IRQ).
      */
     bool ReadIRQLineState() const;
     /**
      * @brief Write
-     * \sa {Channel::Write(word,byte)}
+     * @see Channel::Write(word,byte)
      */
     virtual void Write(word address, byte value) const;
     /**
-     * @brief Read
-     * \sa {Channel::Read(word)}
+     * @see Channel::Read(word)
      */
     virtual byte Read(word address);
  private:

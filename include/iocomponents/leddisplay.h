@@ -44,24 +44,21 @@ private:
 
     DISALLOW_COPY_AND_ASSIGN(LedDisplay);
     /**
-     * @brief DecodeAddressRegister
-     * {Decodes the address byte and returns the actual mapped register.}
+     * Decodes the address byte and returns the actual mapped register.
      * @return
      */
     std::vector<word> GetCursorTargetDisplaysFromAddrRegister();
     void OutputCursor();
     word GetTargetDisplayFromAddrRegister();
     /**
-     * @brief GetDisplayDigitPair
-     * {Returns the display and digit position corresponding to the address provided.}
-     * @return {First element of the pair is the display position, the second one is the digit offset.}
+     * Returns the display and digit position corresponding to the address provided.
+     * @return First element of the pair is the display position, the second one is the digit offset.
      */
     std::pair<int, int> GetDisplayDigitPair(word address) const;
 
     /**
-     * @brief CursorEnabled
-     * {Checks whether the address register indicates that the LED display cursor is enabled.}
-     * @return {True if the cursor is enabled, false if it's not.}
+     * Checks whether the address register indicates that the LED display cursor is enabled.
+     * @return True if the cursor is enabled, false if it's not.
      */
     bool CursorEnabled();
 };

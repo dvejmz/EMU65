@@ -9,6 +9,12 @@
 
 class Aim65;
 
+/**
+ * This class decouples the application top-level window
+ * Qt frontend from the entry point logic to the system.
+ * Obtains and delivers all the necessary basic emulator functions that should be exposed
+ * to the user.
+ */
 class Aim65Proxy : public QObject, public UiProxy
 {
     Q_OBJECT

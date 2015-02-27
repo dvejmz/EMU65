@@ -6,6 +6,10 @@
 #include "../globals.h"
 #include <time.h>
 
+/**
+ * Singleton debugging class. Contains information about the current state of
+ * all the components of the emulator: CPU context, components registers, etc.
+ */
 class AimInspector : public QObject
 {
     Q_OBJECT

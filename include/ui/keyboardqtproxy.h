@@ -6,6 +6,11 @@
 #include "uiproxy.h"
 #include "uiproxycollection.h"
 
+/**
+ * This class intercepts keyboard events from the user so they can be
+ * processed by the emulator. It also limits the keyboard keys
+ * to the the AIM-65 ASCII character set.
+ */
 class KeyboardProxy : public QObject, public UiProxy
 {
     Q_OBJECT
