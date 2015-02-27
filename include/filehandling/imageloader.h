@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <utility>
+#include <memory>
 #include "../globals.h"
 
 typedef std::pair<word, byte> data_pair;

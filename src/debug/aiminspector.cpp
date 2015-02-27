@@ -100,8 +100,6 @@ void AimInspector::SetComponentStatus(QString ledStatus)
     emit componentStatusChanged();
 }
 
-
-// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string AimInspector::CurrentDateTime()
 {
     time_t     now = time(0);

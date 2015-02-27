@@ -28,7 +28,7 @@ class IOComponent
     IOComponent(const byte *registers, const word minAddress, const word maxAddress);
     /**
      * This constructor accepts an allocated address range for the IOComponent as parameters
-     * and constructs an empty dictionary of registers.
+     * and constructs a dictionary of registers initialised to a passive state.
      */
     IOComponent(const word minAddress, const word maxAddress);
     virtual ~IOComponent();

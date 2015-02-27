@@ -42,19 +42,17 @@ void ImageLoader::ReadImageContents(std::ifstream &fin)
     if (fin.is_open())
     {
         unsigned long imageSize = this->GetImageSize(fin);
-        char *buffer = new char[imageSize];
+        auto buffer = std::make_shared<char>(imageSize);
         this->m_imageContents = new byte[imageSize];
 
         if(fin.good())
         {
-            fin.read(buffer, imageSize);
+            fin.read(buffer.get(), imageSize);
             for(int i = 0; i < imageSize; ++i)
             {
-                this->m_imageContents[i] = static_cast<byte>(buffer[i]);
+                this->m_imageContents[i] = static_cast<byte>(buffer.get()[i]);
             }
         }
-
-        delete[] buffer;
 
         fin.close();
     }

@@ -33,12 +33,12 @@ IOComponent::IOComponent(const byte *registers,
     }
 }
 
-// Initialise all the component contents to a passive state.
 IOComponent::IOComponent(const word minAddress, const word maxAddress)
  {
     for(int i = minAddress; i <= maxAddress; ++i)
     {
         this->m_addressRange.push_back(i);
+        // Initialise all registers to inocuous state (0).
         this->m_registers.insert(std::make_pair(i, 0));
     }
 }

@@ -37,6 +37,10 @@ public:
     explicit AimInspector(QObject *parent = 0);
     virtual ~AimInspector();
     static AimInspector* GetInstance();
+    /**
+     * Get current date/time in a specific format.
+     * @return Get current datetime in the format YYYY-MM-DD.HH:mm:ss.
+     */
     static const std::string CurrentDateTime();
     void UpdateCpuStatus(const std::string &data);
     void UpdateLedDisplayStatus(const std::string &data);
