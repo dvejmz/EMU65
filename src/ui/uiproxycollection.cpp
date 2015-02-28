@@ -20,17 +20,17 @@ UiProxyCollection* UiProxyCollection::GetInstance()
     return UiProxyCollection::m_instance;
 }
 
-void UiProxyCollection::InsertLedDisplayProxy(LedDisplayProxy *proxy)
+void UiProxyCollection::InsertLedDisplayProxy(std::shared_ptr<LedDisplayProxy> proxy)
 {
     this->m_ledProxy = std::shared_ptr<LedDisplayProxy>(proxy);
 }
 
-void UiProxyCollection::InsertKeyboardProxy(KeyboardProxy *proxy)
+void UiProxyCollection::InsertKeyboardProxy(std::shared_ptr<KeyboardProxy> proxy)
 {
     this->m_keyboardProxy = std::shared_ptr<KeyboardProxy>(proxy);
 }
 
-void UiProxyCollection::InsertAim65Proxy(Aim65Proxy *proxy)
+void UiProxyCollection::InsertAim65Proxy(std::shared_ptr<Aim65Proxy> proxy)
 {
     this->m_aim65Proxy = std::shared_ptr<Aim65Proxy>(proxy);
 }

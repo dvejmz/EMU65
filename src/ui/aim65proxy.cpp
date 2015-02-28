@@ -14,7 +14,7 @@ Aim65Proxy::~Aim65Proxy()
 
 void Aim65Proxy::RegisterProxy()
 {
-    UiProxyCollection::GetInstance()->InsertAim65Proxy(this);
+    UiProxyCollection::GetInstance()->InsertAim65Proxy(std::shared_ptr<Aim65Proxy>(this));
 }
 
 void Aim65Proxy::SetResetButton(bool newState)

@@ -3,11 +3,13 @@ folder_01.source = qml/EMU65
 folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
 
-CONFIG += c++11
+CONFIG += c++14
 DEFINES += DEBUG
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
+
+DESTDIR = $$PWD
 
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.

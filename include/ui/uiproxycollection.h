@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "../globals.h"
+//#include "leddisplayqtproxy.h"
 
 class LedDisplayProxy;
 class KeyboardProxy;
@@ -15,9 +16,9 @@ public:
   LedDisplayProxy* GetLedDisplayProxy();
   KeyboardProxy* GetKeyboardProxy();
   Aim65Proxy* GetAim65Proxy();
-  void InsertLedDisplayProxy(LedDisplayProxy *proxy);
-  void InsertKeyboardProxy(KeyboardProxy *proxy);
-  void InsertAim65Proxy(Aim65Proxy *proxy);
+  void InsertLedDisplayProxy(std::shared_ptr<LedDisplayProxy> proxy);
+  void InsertKeyboardProxy(std::shared_ptr<KeyboardProxy> proxy);
+  void InsertAim65Proxy(std::shared_ptr<Aim65Proxy> proxy);
 private:
   static UiProxyCollection *m_instance;
 

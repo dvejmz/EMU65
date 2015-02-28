@@ -12,7 +12,7 @@ KeyboardProxy::~KeyboardProxy()
 
 void KeyboardProxy::RegisterProxy()
 {
-    UiProxyCollection::GetInstance()->InsertKeyboardProxy(this);
+    UiProxyCollection::GetInstance()->InsertKeyboardProxy(std::shared_ptr<KeyboardProxy>(this));
 }
 
 char KeyboardProxy::GetPressedKey() const

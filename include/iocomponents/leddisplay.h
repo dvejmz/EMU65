@@ -16,29 +16,29 @@ public:
 
 private:
     // LED display address bounds: 0xAC00-0xAC43.
-    static const word MIN_ADDR = 0xAC00;
-    static const word MAX_ADDR = 0xAC43;
+    static const word MIN_ADDR;
+    static  const word MAX_ADDR;
 
-    static const word RA_ADDR = 0xAC00;
-    static const word RB_ADDR = 0xAC02;
+    static const word RA_ADDR;
+    static const word RB_ADDR;
 
-    static const word RA_W = 0x80;
-    static const word RA_DS5 = 0x40;
-    static const word RA_DS4 = 0x20;
-    static const word RA_DS3 = 0x10;
-    static const word RA_DS2 = 0x08;
-    static const word RA_DS1 = 0x04;
-    static const word RA_A1 = 0x02;
-    static const word RA_A0 = 0x01;
+    static const word RA_W;
+    static const word RA_DS5;
+    static const word RA_DS4;
+    static const word RA_DS3;
+    static const word RA_DS2;
+    static const word RA_DS1;
+    static const word RA_A1;
+    static const word RA_A0;
 
-    static const word RB_CU = 0x80;
+    static const word RB_CU;
 
-    static const word DS1_ADDR = 0xAC04;
-    static const word DS2_ADDR = 0xAC08;
-    static const word DS3_ADDR = 0xAC10;
-    static const word DS4_ADDR = 0xAC20;
-    static const word DS5_ADDR = 0xAC40;
-    static const byte DISPLAY_MASK = RA_DS1 | RA_DS2 | RA_DS3 | RA_DS4 | RA_DS5; // 0x3E
+    static const word DS1_ADDR;
+    static const word DS2_ADDR;
+    static const word DS3_ADDR;
+    static const word DS4_ADDR;
+    static const word DS5_ADDR;
+    static const byte DISPLAY_MASK;
 
     std::shared_ptr<LedDisplayProxy> m_proxy;
 

@@ -7,53 +7,44 @@ ImageLoader::ImageLoader()
 ImageLoader::ImageLoader(const std::string &filePath)
 {
     this->m_filePath = filePath;
-    this->ReadImageContents(this->GetImageFile(this->m_filePath));
-    //filePath.copy(this->m_filePath, filePath.size());
+    m_imagestream.open(m_filePath, std::ios_base::in | std::ios_base::binary);
+    this->ReadImageContents();
 }
 
 ImageLoader::~ImageLoader()
 {
-    delete[] this->m_imageContents;
+    m_imagestream.close();
 }
 
-std::ifstream ImageLoader::GetImageFile(const std::string &filePath) const
+unsigned long ImageLoader::GetImageSize()
 {
-    std::ifstream fin(filePath, std::ios_base::in | std::ios_base::binary);
-    return fin;
-}
-
-unsigned long ImageLoader::GetImageSize(std::ifstream &fin) const
-{
-    fin.seekg(0, std::ios_base::end);
-    unsigned long fileSizeBytes = static_cast<unsigned long>(fin.tellg());
-    fin.seekg(0, std::ios_base::beg);
+    m_imagestream.seekg(0, std::ios_base::end);
+    unsigned long fileSizeBytes = static_cast<unsigned long>(m_imagestream.tellg());
+    m_imagestream.seekg(0, std::ios_base::beg);
     return fileSizeBytes;
 }
 
 byte* ImageLoader::ImageContents()
 {
-    return this->m_imageContents;
+    return this->m_imageContents.get();
 }
 
-void ImageLoader::ReadImageContents(std::ifstream &fin)
+void ImageLoader::ReadImageContents()
 {
     // TODO -- Should return 'false' if reading failed.
-
-    if (fin.is_open())
+    if (m_imagestream.is_open())
     {
-        unsigned long imageSize = this->GetImageSize(fin);
-        auto buffer = std::make_shared<char>(imageSize);
-        this->m_imageContents = new byte[imageSize];
+        auto imageSize = this->GetImageSize();
+        auto buffer = std::unique_ptr<char[]>(new char[imageSize]);
+        m_imageContents = std::unique_ptr<byte[]>(new byte[imageSize]);
 
-        if(fin.good())
+        if(m_imagestream.good())
         {
-            fin.read(buffer.get(), imageSize);
+            m_imagestream.read(buffer.get(), imageSize);
             for(int i = 0; i < imageSize; ++i)
             {
-                this->m_imageContents[i] = static_cast<byte>(buffer.get()[i]);
+                this->m_imageContents.get()[i] = static_cast<byte>(buffer.get()[i]);
             }
         }
-
-        fin.close();
     }
 }

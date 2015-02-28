@@ -5,8 +5,7 @@
 #include "iobus.h"
 
 /**
- * @brief The CpuChannel class
- * {Unique channel used to relay data to and from the Cpu instance it is bound to.}
+ * Unique channel used to relay data to and from the Cpu instance it is bound to.
  */
 class CpuChannel : public Channel
 {

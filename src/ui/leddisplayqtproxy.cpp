@@ -24,7 +24,7 @@ LedDisplayProxy::~LedDisplayProxy()
 
 void LedDisplayProxy::RegisterProxy()
 {
-    UiProxyCollection::GetInstance()->InsertLedDisplayProxy(this);
+    UiProxyCollection::GetInstance()->InsertLedDisplayProxy(std::shared_ptr<LedDisplayProxy>(this));
 }
 
 QString LedDisplayProxy::GetLedDisplay()

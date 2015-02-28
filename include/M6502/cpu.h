@@ -3,7 +3,7 @@
 /**                             cpu.h                              **/
 /**                                                                **/
 /** Header file of the Cpu class, which encapsulates the 6502 libra**/
-/** ries, providing a simple interface to the rest of the system.  **/
+/**ries, providing a simple interface to the rest of the system.  **/
 /********************************************************************/
 #ifndef CPU_H
 #define CPU_H

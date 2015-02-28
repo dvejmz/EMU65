@@ -30,6 +30,8 @@ struct Aim65Panel
 typedef std::pair<word, byte> data_pair;
 
 const std::string MONITOR_IMAGE_PATH = "res/rom/AIMMON11.BIN";
+//const std::string MONITOR_IMAGE_PATH = R"(C:\Users\Shur David\Desktop\University\Year 3\08341 - Project\Source Code\EMU65\EMU65\res\rom\AIMMON11.BIN)";
+//const std::string MONITOR_IMAGE_PATH = "../../res/rom/AIMMON11.BIN";
 
 class Aim65
 {

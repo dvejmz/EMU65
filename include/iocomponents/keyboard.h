@@ -13,17 +13,17 @@ class Keyboard : public IOComponentIRQ
   void UpdateDebugStatus(word address);
  private:
     // Keyboard address bounds: 0xA480-0xA497.
-    static const word MIN_KEYBOARD_ADDR = 0xA480;
-    static const word MAX_KEYBOARD_ADDR = 0xA497;
+    const word MIN_KEYBOARD_ADDR = 0xA480;
+    const word MAX_KEYBOARD_ADDR = 0xA497;
 
-    static const word DRA2_ADDR = 0xA480;
-    static const word DRB2_ADDR = 0xA482;
-    static const word DNPA7_ADDR = 0xA484;
-    static const word DPPA7_ADDR = 0xA485;
+    const word DRA2_ADDR = 0xA480;
+    const word DRB2_ADDR = 0xA482;
+    const word DNPA7_ADDR = 0xA484;
+    const word DPPA7_ADDR = 0xA485;
     // Note RINT and ENPA7 have the same address.
-    static const word RINT_ADDR = 0xA486;
-    static const word ENPA7_ADDR = 0xA486;
-    static const word EPPA7_ADDR = 0xA487;
+    const word RINT_ADDR = 0xA486;
+    const word ENPA7_ADDR = 0xA486;
+    const word EPPA7_ADDR = 0xA487;
 
     DISALLOW_COPY_AND_ASSIGN(Keyboard);
 

@@ -38,6 +38,30 @@
 /** 0xAC43 - DISP 5 DIG 3 CH 17                         **/
 /*********************************************************/
 
+const word LedDisplay::MIN_ADDR = 0xAC00;
+const word LedDisplay::MAX_ADDR = 0xAC43;
+
+const word LedDisplay::RA_ADDR = 0xAC00;
+const word LedDisplay::RB_ADDR = 0xAC02;
+
+const word LedDisplay::RA_W = 0x80;
+const word LedDisplay::RA_DS5 = 0x40;
+const word LedDisplay::RA_DS4 = 0x20;
+const word LedDisplay::RA_DS3 = 0x10;
+const word LedDisplay::RA_DS2 = 0x08;
+const word LedDisplay::RA_DS1 = 0x04;
+const word LedDisplay::RA_A1 = 0x02;
+const word LedDisplay::RA_A0 = 0x01;
+
+const word LedDisplay::RB_CU = 0x80;
+
+const word LedDisplay::DS1_ADDR = 0xAC04;
+const word LedDisplay::DS2_ADDR = 0xAC08;
+const word LedDisplay::DS3_ADDR = 0xAC10;
+const word LedDisplay::DS4_ADDR = 0xAC20;
+const word LedDisplay::DS5_ADDR = 0xAC40;
+const byte LedDisplay::DISPLAY_MASK = LedDisplay::RA_DS1 | LedDisplay::RA_DS2 | LedDisplay::RA_DS3 | LedDisplay::RA_DS4 | LedDisplay::RA_DS5; // 0x3E
+
 LedDisplay::LedDisplay(LedDisplayProxy *proxy)
 {
     for (int i = 0xAC00; i <= 0xAC43; ++i)
