@@ -1,3 +1,5 @@
+#include <QObject>
+#include <QThread>
 #include <QtGui/QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -12,11 +14,13 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine mainWindow("qml/EMU65/main.qml");
     QQmlApplicationEngine aimInspectorWindow("qml/EMU65/aiminspector.qml");
-    Aim65* aim65 = Aim65::GetInstance();
-    Aim65Proxy* aim65Proxy = new Aim65Proxy(aim65);
     UiProxyCollection* proxyCollection = UiProxyCollection::GetInstance();
+    QThread aimThread;
+    Aim65Proxy* aim65Proxy = new Aim65Proxy(Aim65::GetInstance());
+    aim65Proxy->moveToThread(&aimThread);
+    QObject::connect(&aimThread, SIGNAL(started()), aim65Proxy, SLOT(Start()));
 
-    aim65->Initialise();
+    aimThread.start();
     aimInspectorWindow.rootContext()->setContextProperty("aimInspector", AimInspector::GetInstance());
     mainWindow.rootContext()->setContextProperty("aim65", proxyCollection->GetAim65Proxy());
     mainWindow.rootContext()->setContextProperty("keyboard", proxyCollection->GetKeyboardProxy());

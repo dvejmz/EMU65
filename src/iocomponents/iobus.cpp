@@ -64,7 +64,13 @@ IOChannel* IOBus::GetIOChannel(word address) const
 
     // 0xF08C - PRDOT0: Beginning of printer buffer printing subroutine. (Called from 0xFF4B)
     const word PRDOT0_ADDR = 0xF08C;
-    // Intercept calls to print subroutine stored in Monitor ROM.
+
+    if(address == 0xFF74)
+    {
+        int x = 5;
+    }
+
+    // Trap calls to print subroutine stored in Monitor ROM.
     if (address == PRDOT0_ADDR)
     {
         // Get the printer channel.

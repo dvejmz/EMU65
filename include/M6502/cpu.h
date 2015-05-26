@@ -13,7 +13,7 @@
 #include "../iocomponents/cpuchannel.h"
 #include "M6502.h"
 
-#ifdef DEBUG
+#ifdef EMU65_DEBUG
 #include "../debug/aiminspector.h"
 #endif
 
@@ -83,7 +83,7 @@ class Cpu
    */
   int ExecuteOpcode(int runCycles);
 
-  #ifdef DEBUG
+  #ifdef EMU65_DEBUG
 
   AimInspector* GetInspector();
 

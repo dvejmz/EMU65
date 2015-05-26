@@ -1,6 +1,5 @@
 #include "../../include/M6502/cpu.h"
 #include <fstream>
-#include "../../Include/M6502/cpuqthread.h"
 
 Cpu* Cpu::pInstance = nullptr;
 
@@ -44,7 +43,7 @@ void Cpu::Reset()
     Reset6502(&this->m_cpu);
 }
 
-#ifdef DEBUG
+#ifdef EMU65_DEBUG
 
 byte Cpu::UpdateDbgStatus()
 {
@@ -52,7 +51,7 @@ byte Cpu::UpdateDbgStatus()
 
     const std::string timestamp = "[" + AimInspector::CurrentDateTime() + "] ";
     std::string str = timestamp + this->GetCpuDebugData();
-    std::ofstream fout("dbgoutput.txt", std::ios_base::out | std::ios_base::app);
+    std::ofstream fout("var/log/dbgoutput.log", std::ios_base::out | std::ios_base::app);
 
     for (int i = 0; i < str.size(); ++i)
     {
@@ -110,7 +109,7 @@ std::string Cpu::GetCpuDebugData()
     return dbgOutput;
 }
 
-#endif /* DEBUG */
+#endif /* EMU65_DEBUG */
 
 void Cpu::ServiceInterrupt(byte type)
 {

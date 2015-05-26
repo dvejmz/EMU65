@@ -167,6 +167,11 @@ void Aim65::InitialiseLedDisplay()
     ledChannel->BindComponent(ledDisplay);
 }
 
+bool Aim65::GetPowerSwitch()
+{
+    return this->m_panel.powerSwitch;
+}
+
 void Aim65::SetPowerSwitch(bool newState)
 {
     this->m_panel.powerSwitch = newState;

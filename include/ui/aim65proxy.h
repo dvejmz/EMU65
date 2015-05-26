@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include "../aim65.h"
-#include "../M6502/cpuqthread.h"
 #include "uiproxy.h"
 #include "uiproxycollection.h"
 
@@ -27,12 +26,12 @@ public:
     virtual ~Aim65Proxy();
     virtual void RegisterProxy();
     bool GetResetButton() const;
-    void SetResetButton(bool newState);
 public slots:
+    void SetResetButton(bool newState);
+    void Start();
 signals:
 private:
     std::shared_ptr<Aim65> m_aim65;
-    std::unique_ptr<CpuQtThread> m_cpuThread;
 };
 
 #endif /* AIM65PROXY_H */

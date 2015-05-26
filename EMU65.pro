@@ -4,7 +4,7 @@ folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
 
 CONFIG += c++14
-DEFINES += DEBUG
+#DEFINES += EMU65_DEBUG
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
@@ -33,14 +33,15 @@ SOURCES += src/main.cpp \
     src/iocomponents/unmappedmemoryexception.cpp \
     src/M6502/cpu.cpp \
     src/M6502/M6502.cpp \
-    src/M6502/cpuqthread.cpp \
     src/ui/uiproxy.cpp \
     src/ui/uiproxycollection.cpp \
     src/ui/keyboardqtproxy.cpp \
     src/ui/leddisplayqtproxy.cpp \
     src/ui/aim65proxy.cpp \
     src/filehandling/imageloader.cpp \
-    src/filehandling/fileprinter.cpp
+    src/filehandling/fileprinter.cpp \
+    include/ui/aim65controller.cpp \
+    src/ui/aim65controller.cpp
 
 # Installation path
 # target.path =
@@ -65,14 +66,14 @@ HEADERS += include/aim65.h \
     include/iocomponents/unmappedmemoryexception.h \
     include/M6502/cpu.h \
     include/M6502/M6502.h \
-    include/M6502/cpuqthread.h \
     include/ui/uiproxy.h \
     include/ui/uiproxycollection.h \
     include/ui/leddisplayqtproxy.h \
     include/ui/aim65proxy.h \
     include/ui/keyboardqtproxy.h \
     include/filehandling/imageloader.h \
-    include/filehandling/fileprinter.h
+    include/filehandling/fileprinter.h \
+    include/ui/aim65controller.h
 
 TARGET = EMU65
 

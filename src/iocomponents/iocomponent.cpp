@@ -17,8 +17,7 @@ IOComponent::IOComponent(const byte *registers,
     // Has to be int instead of word, because otherwise it wraps around into 0x0 right after 0xFFFF
     // and hence the for loop condition succeeds but 'j' keeps incrementing thus reching the end
     // of the ROM image and causing an exception.
-    int i;
-    int j;
+    int i, j;
     try
     {
         for (i = minAddress, j = 0; i <= maxAddress; ++i, ++j)

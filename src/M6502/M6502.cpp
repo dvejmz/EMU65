@@ -38,7 +38,7 @@
 #define FAST_RDOP
 extern byte *Page[];
 
-/* REMARK (DJS) -- Get the opcode from the instruction, masking out the rest of it.  */
+/* REMARK (LM) -- Get the opcode from the instruction, masking out the rest of it.  */
 INLINE byte Op6502(register word A)
 {
   return(Page[A>>13][A&0x1FFF]);
@@ -49,7 +49,7 @@ INLINE byte Op6502(register word A)
 extern int Opt6502(M6502 *R);
 #endif
 
-/** DJS - C++ CPU Facade *************************************/
+/** LM - C++ CPU Facade **************************************/
 /** With this #define not present, Rd6502() should perform  **/
 /** the functions of Op6502().                              **/
 /*************************************************************/
@@ -214,7 +214,7 @@ void Reset6502(M6502 *R)
   R->A=R->X=R->Y=0x00;
   R->P=Z_FLAG|R_FLAG;
   R->S=0xFF;
-  /* DJS -- NMI vector (0xFFFC-0xFFFD) doesn't lead to power-up routine in AIM-65.
+  /* LM -- NMI vector (0xFFFC-0xFFFD) doesn't lead to power-up routine in AIM-65.
    * RESET vector (0xFFFA-0xFFFB) is used instead. */
   R->PC.B.l=Rd6502(0xFFFC);
   R->PC.B.h=Rd6502(0xFFFD);
@@ -302,7 +302,7 @@ word Run6502(M6502 *R)
     Opt6502(R);
 #else /* !S60 */
 
-#ifdef DEBUG
+#ifdef CPU_DEBUG
     /* Turn tracing on when reached trap address */
     if(R->PC.W==R->Trap) R->Trace=1;
     /* Call single-step debugger, exit if requested */
