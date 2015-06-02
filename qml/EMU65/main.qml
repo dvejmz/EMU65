@@ -16,7 +16,8 @@ ApplicationWindow {
             }
             MenuItem {
                 text: qsTr("Reset")
-                onTriggered: aim65.resetButton = true
+                /*onTriggered: aim65.resetButton = true*/
+                onTriggered: aim65Controller.Start()
             }
             MenuItem {
                 text: qsTr("Toggle RUN/STEP Mode")
@@ -134,7 +135,7 @@ ApplicationWindow {
 
             MouseArea {
                 anchors.fill : parent
-                onClicked: aim65.resetButton = true
+                onClicked: /* aim65.resetButton = true */ aim65Controller.Start()
             }
         }
 

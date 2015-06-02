@@ -38,10 +38,9 @@ SOURCES += src/main.cpp \
     src/ui/keyboardqtproxy.cpp \
     src/ui/leddisplayqtproxy.cpp \
     src/ui/aim65proxy.cpp \
+    src/ui/aim65controller.cpp \
     src/filehandling/imageloader.cpp \
-    src/filehandling/fileprinter.cpp \
-    include/ui/aim65controller.cpp \
-    src/ui/aim65controller.cpp
+    src/filehandling/fileprinter.cpp
 
 # Installation path
 # target.path =
@@ -70,10 +69,10 @@ HEADERS += include/aim65.h \
     include/ui/uiproxycollection.h \
     include/ui/leddisplayqtproxy.h \
     include/ui/aim65proxy.h \
+    include/ui/aim65controller.h \
     include/ui/keyboardqtproxy.h \
     include/filehandling/imageloader.h \
     include/filehandling/fileprinter.h \
-    include/ui/aim65controller.h
 
 TARGET = EMU65
 
